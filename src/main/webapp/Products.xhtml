@@ -6,7 +6,7 @@
       xmlns:rich="http://richfaces.org/rich">
 	<h:body>
 	<h1> Por favor selecione uma das seguintes opcoes:</h1>
-	<h2> #{Product}</h2>
+	<h2> </h2>
 		
 	<h:form>
 		
@@ -14,8 +14,8 @@
 		</h:commandButton>
 		<h:commandButton value="Editar" >
 		</h:commandButton>
-	
-	<h:commandButton value="Consultar" >
+		
+	<h:commandButton value="Consultar"  actionListener="#{ProductBean.cp.checkProduct()}">
 		
 		<rich:dropDownMenu label="Lista de produtos">
 		</rich:dropDownMenu>

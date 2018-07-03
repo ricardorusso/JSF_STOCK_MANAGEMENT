@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core">
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
 	<h:head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
 	</h:head>
@@ -13,7 +14,26 @@
 			</h:commandButton> <br/>
 			<h:commandButton value="Lista de prateleiras" action="Shelf">
 			</h:commandButton>
-	
+			
+			
+			
+				<p:dataTable var="product" value="#{ProductBean.}">
+		    <p:column headerText="Id">
+		        <h:outputText value="#{car.id}" />
+		    </p:column>
+		 
+		    <p:column headerText="Year">
+		        <h:outputText value="#{car.year}" />
+		    </p:column>
+		 
+		    <p:column headerText="Brand">
+		        <h:outputText value="#{car.brand}" />
+		    </p:column>
+		 
+		    <p:column headerText="Color">
+		        <h:outputText value="#{car.color}" />
+    </p:column>
+</p:dataTable>
 				
 			
 		</h:form>
