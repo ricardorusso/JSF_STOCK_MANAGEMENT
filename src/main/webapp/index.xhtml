@@ -7,35 +7,32 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
 	</h:head>
 	<h:body>
-					<h1>Lista de Produtos </h1>
+					<h1 style="text-align: center;">Lista de Produtos </h1>
 	
 		<h:form>	
-			<h:commandButton value="Lista de produtos" action="Products">
-			</h:commandButton> <br/>
-			<h:commandButton value="Lista de prateleiras" action="Shelf">
-			</h:commandButton>
-			
-			
-			
-				<p:dataTable var="product" value="#{ProductBean.}">
-		    <p:column headerText="Id">
-		        <h:outputText value="#{car.id}" />
-		    </p:column>
-		 
-		    <p:column headerText="Year">
-		        <h:outputText value="#{car.year}" />
-		    </p:column>
-		 
-		    <p:column headerText="Brand">
-		        <h:outputText value="#{car.brand}" />
-		    </p:column>
-		 
-		    <p:column headerText="Color">
-		        <h:outputText value="#{car.color}" />
-    </p:column>
-</p:dataTable>
-				
-			
+			<p:growl id="messages" showDetail="false"/>
+ 
+			    <p:commandButton id="dynaButton" value="Lista de Produtos" type="button" icon="ui-icon-extlink"/>
+			    <p:menu overlay="true" trigger="dynaButton" my="left top" at="right right">
+			        <p:submenu label="Produtos">
+			            <p:menuitem value="Criar" action="createP" update="messages" icon="ui-icon-disk"/>
+			            <p:menuitem value="Editar" action="updateP" update="messages" icon="ui-icon-arrowrefresh-1-w"/>
+			             <p:menuitem value="Consultar" action="readP" update="messages" icon="ui-icon-arrowrefresh-1-w"/>
+			            
+			        </p:submenu>
+			        
+			    </p:menu><br/>
+			    <p:commandButton id="dynaButton2" value="Prateleiras" type="button" icon="ui-icon-extlink"/>
+			    <p:menu overlay="true" trigger="dynaButton2" my="left top" at="right right">
+			    <p:submenu label="Prateleiras">
+	            <p:menuitem value="Criar" action="createS" update="messages" icon="ui-icon-disk"/>
+	            <p:menuitem value="Editar" action="updateS" update="messages" icon="ui-icon-arrowrefresh-1-w"/>
+	             <p:menuitem value="Consultar" action="readP" update="messages" icon="ui-icon-arrowrefresh-1-w"/>
+	            
+	        </p:submenu>
+	    </p:menu>
+   	
 		</h:form>
+
 	</h:body>
 </html>

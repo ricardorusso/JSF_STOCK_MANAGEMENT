@@ -19,19 +19,12 @@
 		Desconto <h:inputText value="#{ProductBean.p.descont}"> </h:inputText><br> </br>
 		Preco final <h:inputText  value="#{ProductBean.p.PVP}"> </h:inputText><br> </br>
 		
-		<h:commandButton value="Criar" action="#{ProductBean.createProduct(ProductBean.p)}">
-		</h:commandButton>
-		<h:commandButton value="Check" actionListener= "#{ProductBean.checkProduct()}">
-		</h:commandButton>
-		<h:commandButton value="HOME" action="index">
-		</h:commandButton>
-		<rich:message>
-		</rich:message>
+	
 		    <p:growl id="messages" />
 		 
 		    <p:splitButton value="Save" action="#{ProductBean.createProduct(ProductBean.p)}" update="messages" icon="ui-icon-disk">
 		        <p:menuitem value="Update" actionListener="#{buttonView.update}" update="messages" icon="ui-icon-arrowrefresh-1-w" />
-		        <p:menuitem value="Delete" actionListener="#{buttonView.delete}" ajax="false" icon="ui-icon-close" />
+		        <p:menuitem value="Delete" ajax="false" icon="ui-icon-close" />
 		        <p:separator />
 		        <p:menuitem value="Homepage" action="index" icon="ui-icon-extlink" />
 		    </p:splitButton>
