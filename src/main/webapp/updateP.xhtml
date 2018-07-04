@@ -2,8 +2,70 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html">
-
-	<ui:composition template="">
-	</ui:composition>
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+	<h:head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+	</h:head>
+	
+	
+		<h:body>
+			<h:form id="form">
+   <p:growl id="msgs" showDetail="true"/>
+ 
+   <p:dataTable var="product" value="#{ProductBean.product}" editable="true" style="margin-bottom:20px">
+       <f:facet name="header">
+           Edicao de Produtos
+       </f:facet>
+ 
+       
+ 
+       <p:column style="width:20px" headerText="ID">
+          <h:outputText value="#{product.ID}" style="color:red;text-align:justify;"/>
+       </p:column>
+ 
+       <p:column headerText="IVA">
+           <p:cellEditor>
+               <f:facet  name="output"><h:outputText value="#{product.IVA}" /></f:facet>
+               <f:facet name="input"><p:inputText value="#{product.IVA}" style="width:100%" /></f:facet>
+           </p:cellEditor>
+       </p:column>
+              <p:column headerText="Desconto">
+           <p:cellEditor>
+               <f:facet name="output"><h:outputText value="#{product.descont}" /></f:facet>
+               <f:facet name="input"><p:inputText value="#{product.descont}" style="width:100%" /></f:facet>
+           </p:cellEditor>
+       </p:column>
+              <p:column headerText="Preco">
+           <p:cellEditor>
+               <f:facet name="output"><h:outputText value="#{product.PVP}" /></f:facet>
+               <f:facet name="input"><p:inputText value="#{product.PVP}" style="width:100%"/></f:facet>
+           </p:cellEditor>
+       </p:column>
+	
+       
+       
+ 
+       <p:column style="width:5x">
+       		
+           <p:rowEditor />
+       </p:column>
+       
+       <p:column style="width:5x">
+       		<p:commandButton icon="ui-icon-trash"
+                        title="Delete this actor"
+                        action="#{ProductBean.removeProduct(product)}"
+                        ajax="false" />
+        </p:column>
+   </p:dataTable>
+ 
+ 
+ 
+</h:form>
+<h:form>
+		<h:commandButton value="Home" action="index" >
+		</h:commandButton>
+		</h:form>
+	</h:body>
+	
 </html>

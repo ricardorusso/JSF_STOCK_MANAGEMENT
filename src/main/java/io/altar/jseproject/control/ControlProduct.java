@@ -4,7 +4,7 @@ import java.util.Collection;
 
 import javax.enterprise.context.RequestScoped;
 
-import io.altar.jseproject.model.Entity;
+
 import io.altar.jseproject.model.Product;
 import io.altar.jseproject.repositories.EntityRepository;
 import io.altar.jseproject.repositories.ProductRepository;
@@ -12,7 +12,7 @@ import io.altar.jseproject.repositories.ProductRepository;
 @RequestScoped
 public class ControlProduct {
 		
-		static EntityRepository <Entity> DbProduct = ProductRepository.getIntance();
+		static EntityRepository <Product> DbProduct = ProductRepository.getIntance();
 		
 		public static void createProduct(Product p) {
 			
@@ -20,14 +20,17 @@ public class ControlProduct {
 			
 		}
 		
-		public static Collection<Entity> getProduct() {
+		public static Collection<Product> getProduct() {
 			return DbProduct.getEntity();
 			
 		}
 		
+		public static void editProduct(Product p) {
+			DbProduct.editEntity(p);
+		}
 		
-		
-		
-		
+		public static void removeProduct(Product p) {
+			DbProduct.removeEntity(p);
+		}
 		
 }
