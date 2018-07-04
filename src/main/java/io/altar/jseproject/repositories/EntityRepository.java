@@ -59,8 +59,8 @@ public abstract class EntityRepository  <T extends Entity> {
 		}
 	}
 
-	public void removeEntity( T Entity) {
-		map.remove(Entity.getID(), Entity);
+	public void removeEntity(long ID) {
+		map.remove(ID);
 	}
 
 }

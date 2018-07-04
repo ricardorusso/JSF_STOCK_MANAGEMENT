@@ -1,35 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:p="http://primefaces.org/ui"
-      xmlns:rich="http://richfaces.org/rich">
-	<h:head>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
-	</h:head>
-	<h:body>
-	<h1>Criar Prateleira</h1>
-	
-		<h3>Lista de Prateleira</h3>
-		
-		<h:form>
-		
-		
-		Capacidade <h:inputText value="#{ShelfBean.s.capacaty}"></h:inputText> <br> </br>
-		Preco <h:inputText value="#{ShelfBean.s.price}"> </h:inputText><br> </br>
-		Produto <h:inputText  > </h:inputText><br> </br>
-		
-	
-		    <p:growl id="messages" />
-		 
-		    <p:splitButton value="Save" action="#{ShelfBean.createShelf(ShelfBean.s)}" update="messages" icon="ui-icon-disk">
-		        <p:menuitem value="Update" actionListener="#{buttonView.update}" update="messages" icon="ui-icon-arrowrefresh-1-w" />
-		        <p:menuitem value="Delete" ajax="false" icon="ui-icon-close" />
-		        <p:separator />
-		        <p:menuitem value="Homepage" action="index" icon="ui-icon-extlink" />
-		    </p:splitButton>
-		
-		</h:form>
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
 
-	</h:body>
+	<ui:composition template="">
+	</ui:composition>
 </html>

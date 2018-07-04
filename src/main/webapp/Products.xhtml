@@ -15,7 +15,7 @@
 		<h:commandButton value="Editar" >
 		</h:commandButton>
 		
-	<h:commandButton value="Consultar" action="readP" >
+	<h:commandButton value="Consultar"  actionListener="#{ProductBean.cp.checkProduct()}">
 		
 		<rich:dropDownMenu label="Lista de produtos">
 		</rich:dropDownMenu>

@@ -2,9 +2,11 @@ package io.altar.jseproject.beans;
 
 import javax.inject.Inject;
 import javax.inject.Named;
+
 import io.altar.jseproject.control.ControlProduct;
 import io.altar.jseproject.model.Product;
-import java.util.Collection;
+
+
 import javax.enterprise.context.RequestScoped;
 
 @Named("ProductBean")
@@ -33,23 +35,11 @@ public class ProductBeans  {
 	public void setP(Product p) {
 		this.p = p;
 	}
-	public  String createProduct(Product p) {
+	public  void createProduct(Product p) {
 		ControlProduct.createProduct(p);
-		return "index";
+		//return "index";
 	}
-//	public void checkProduct() {
-//		ControlProduct.getProduct();
-//	}
-	
-	public Collection<Product> getProduct(){
-		return ControlProduct.getProduct();
-	}
-	
-	public void editProduct(Product p) {
-		ControlProduct.editProduct(p);
-	}
-	
-	public void removeProduct(Product p) {
-		ControlProduct.removeProduct(p);
+	public void checkProduct() {
+		ControlProduct.getProduct();
 	}
 }

@@ -1,9 +1,8 @@
 package io.altar.jseproject.repositories;
 
+import io.altar.jseproject.model.Entity;
 
-import io.altar.jseproject.model.Product;
-
-public class ProductRepository extends EntityRepository <Product>{
+public class ProductRepository extends EntityRepository <Entity>{
 	
 	private static final ProductRepository INSTANCE = new ProductRepository(); 
 	
