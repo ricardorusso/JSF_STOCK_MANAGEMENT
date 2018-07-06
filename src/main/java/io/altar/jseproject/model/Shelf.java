@@ -10,7 +10,7 @@ public class Shelf extends Entity {
 	public void setCapacity(int capacity){
 		this.capacity = capacity;
 	}
-	public int getCapacaty(){
+	public int getCapacity(){
 		return capacity;
 	}
 	
@@ -28,8 +28,8 @@ public class Shelf extends Entity {
 	public Shelf() {
 		
 	}
-	public Shelf(int capacaty, Product productName, float price) {
-		this.capacity= capacaty;
+	public Shelf(int capacity, Product productName, float price) {
+		this.capacity= capacity;
 		this.productName= productName;
 		this.price= price;
 	}
@@ -42,7 +42,7 @@ public class Shelf extends Entity {
 			return "ID " + this.getID() + " Capacidade: " + this.capacity + " Preco: " + this.price + " Produto: " + this.productName.getID();
 		}
 	}
-	public void setProductNameD(Product productName) {
+	public void setProductName(Product productName) {
 		this.productName = productName;
 
 

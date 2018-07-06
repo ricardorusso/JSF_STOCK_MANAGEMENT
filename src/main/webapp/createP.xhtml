@@ -22,7 +22,7 @@
 	
 		    <p:growl id="messages" />
 		 
-		    <p:splitButton value="Save" action="#{ProductBean.createProduct(ProductBean.p)}" update="messages" icon="ui-icon-disk">
+		    <p:splitButton value="Save" action="#{ProductBean.createProduct()}" update="messages" icon="ui-icon-disk">
 		        <p:menuitem value="Update" actionListener="#{buttonView.update}" update="messages" icon="ui-icon-arrowrefresh-1-w" />
 		        <p:menuitem value="Delete" ajax="false" icon="ui-icon-close" />
 		        <p:separator />

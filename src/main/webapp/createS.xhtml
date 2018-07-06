@@ -15,14 +15,24 @@
 		<h:form>
 		
 		
-		Capacidade <h:inputText value="#{ShelfBean.s.capacaty}"></h:inputText> <br> </br>
-		Preco <h:inputText value="#{ShelfBean.s.price}"> </h:inputText><br> </br>
-		Produto <h:inputText  > </h:inputText><br> </br>
+		Capacidade <h:inputText value="#{ShelfBean.s.capacity}"></h:inputText> <br> </br>
+		Preço <h:inputText value="#{ShelfBean.s.price}"> </h:inputText><br> </br>
+		Produto <p:cellEditor>
+					<f:facet name="output">
+						<h:outputText value="#{ShelfBean.s.productName}" />
+					</f:facet>
+					<f:facet name="input">
+						<h:selectOneMenu value="#{ProductBean.product}" style="width:30%">
+							<f:selectItems value="#{ProductBean.product}" var="man"
+								itemLabel="#{man}" itemValue="#{man}" />
+						</h:selectOneMenu>
+					</f:facet>
+				</p:cellEditor>
 		
 	
 		    <p:growl id="messages" />
 		 
-		    <p:splitButton value="Save" action="#{ShelfBean.createShelf(ShelfBean.s)}" update="messages" icon="ui-icon-disk">
+		    <p:splitButton value="Save" action="#{ShelfBean.createShelf()}" update="messages" icon="ui-icon-disk">
 		        <p:menuitem value="Update" actionListener="#{buttonView.update}" update="messages" icon="ui-icon-arrowrefresh-1-w" />
 		        <p:menuitem value="Delete" ajax="false" icon="ui-icon-close" />
 		        <p:separator />

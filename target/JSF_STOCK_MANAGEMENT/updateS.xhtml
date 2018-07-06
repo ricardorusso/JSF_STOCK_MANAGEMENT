@@ -1,9 +1,77 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html">
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</h:head>
 
-	<ui:composition template="">
-	</ui:composition>
+
+<h:body>
+	<h:form id="form">
+		<p:growl id="msgs" showDetail="true" />
+
+		<p:dataTable var="shelf" value="#{ShelfBean.shelf}" editable="true"
+			style="margin-bottom:20px">
+			<f:facet name="header">
+           Edicao de Prateleiras
+       </f:facet>
+			<p:column style="width:20px" headerText="ID">
+				<h:outputText value="#{shelf.ID}"
+					style="color:red;text-align:justify;" />
+			</p:column>
+
+			<p:column headerText="Capacidade">
+				<p:cellEditor>
+					<f:facet name="output">
+						<h:outputText value="#{shelf.capacity}" />
+					</f:facet>
+					<f:facet name="input">
+						<p:inputText value="#{shelf.capacity}" style="width:80%" />
+					</f:facet>
+				</p:cellEditor>
+			</p:column>
+			<p:column headerText="Preço">
+				<p:cellEditor>
+					<f:facet name="output">
+						<h:outputText value="#{shelf.price}" />
+					</f:facet>
+					<f:facet name="input">
+						<p:inputText value="#{shelf.price}" style="width:80%" />
+					</f:facet>
+				</p:cellEditor>
+			</p:column>
+			<p:column headerText="Produto">
+				<p:cellEditor>
+					<f:facet name="output">
+						<h:outputText value="#{shelf.productName}" />
+					</f:facet>
+					<f:facet name="input">
+						<h:selectOneMenu value="#{ProductBean.product}" style="width:100%">
+							<f:selectItems value="#{shelf.productName}" var="man"
+								itemLabel="#{man}" itemValue="#{man}" />
+						</h:selectOneMenu>
+					</f:facet>
+				</p:cellEditor>
+			</p:column>
+
+			<p:column style="width:20px">
+
+				<p:rowEditor />
+			</p:column>
+
+			<p:column style="width:20px">
+				<p:commandButton icon="ui-icon-trash" title="Delete this actor"
+					action="#{ProductBean.removeProduct(product)}" ajax="false" />
+			</p:column>
+		</p:dataTable>
+	</h:form>
+	<h:form>
+		<h:commandButton value="Home" action="index">
+		</h:commandButton>
+	</h:form>
+</h:body>
+
 </html>

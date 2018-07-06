@@ -34,7 +34,7 @@ public class ShelfBeans {
 		this.s = s;
 	}
 	
-	public String createShelf(Shelf s) {
+	public String createShelf() {
 		Controlshelf.createShelf(s);
 		return "index";
 	}

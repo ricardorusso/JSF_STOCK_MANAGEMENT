@@ -33,13 +33,11 @@ public class ProductBeans  {
 	public void setP(Product p) {
 		this.p = p;
 	}
-	public  String createProduct(Product p) {
+	public String createProduct() {
 		ControlProduct.createProduct(p);
 		return "index";
 	}
-//	public void checkProduct() {
-//		ControlProduct.getProduct();
-//	}
+
 	
 	public Collection<Product> getProduct(){
 		return ControlProduct.getProduct();
