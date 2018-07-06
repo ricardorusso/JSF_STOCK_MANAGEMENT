@@ -3,43 +3,49 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:p="http://primefaces.org/ui"
-      xmlns:rich="http://richfaces.org/rich">
-	<h:head>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
-	</h:head>
-	<h:body>
+	xmlns:rich="http://richfaces.org/rich">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</h:head>
+<h:body>
 	<h1>Criar Prateleira</h1>
-	
-		<h3>Lista de Prateleira</h3>
-		
-		<h:form>
-		
-		
-		Capacidade <h:inputText value="#{ShelfBean.s.capacity}"></h:inputText> <br> </br>
-		Preço <h:inputText value="#{ShelfBean.s.price}"> </h:inputText><br> </br>
-		Produto <p:cellEditor>
-					<f:facet name="output">
-						<h:outputText value="#{ShelfBean.s.productName}" />
-					</f:facet>
-					<f:facet name="input">
-						<h:selectOneMenu value="#{ProductBean.product}" style="width:30%">
-							<f:selectItems value="#{ProductBean.product}" var="man"
-								itemLabel="#{man}" itemValue="#{man}" />
-						</h:selectOneMenu>
-					</f:facet>
-				</p:cellEditor>
-		
-	
-		    <p:growl id="messages" />
-		 
-		    <p:splitButton value="Save" action="#{ShelfBean.createShelf()}" update="messages" icon="ui-icon-disk">
-		        <p:menuitem value="Update" actionListener="#{buttonView.update}" update="messages" icon="ui-icon-arrowrefresh-1-w" />
-		        <p:menuitem value="Delete" ajax="false" icon="ui-icon-close" />
-		        <p:separator />
-		        <p:menuitem value="Homepage" action="index" icon="ui-icon-extlink" />
-		    </p:splitButton>
-		
-		</h:form>
 
-	</h:body>
+	<h3>Lista de Prateleira</h3>
+
+	<h:form>
+		
+		
+		Capacidade <h:inputText value="#{ShelfBean.s.capacity}"></h:inputText>
+		<br> </br>
+		Preço <h:inputText value="#{ShelfBean.s.price}">
+		</h:inputText>
+		<br> </br>
+		Produto <p:cellEditor>
+			<f:facet name="output">
+				<h:outputText value="#{ShelfBean.s.productName }" />
+			</f:facet>
+			<f:facet name="input">
+				<h:selectOneMenu id="display" value="#{ProductBean.product}" style="width:30%">
+					<f:selectItems  value="#{ProductBean.product}" var="man"
+						itemLabel="#{man}" itemValue="#{man}" />
+				</h:selectOneMenu>
+			</f:facet>
+		</p:cellEditor>
+
+
+		<p:growl id="messages" />
+
+		<p:splitButton value="Save" action="#{ShelfBean.createShelf()}"
+			update="messages" icon="ui-icon-disk">
+			<p:menuitem value="Update" actionListener="#{buttonView.update}"
+				update="messages" icon="ui-icon-ar	rowrefresh-1-w" />
+			<p:menuitem value="Delete" ajax="false" icon="ui-icon-close" />
+			<p:separator />
+			<p:menuitem value="Homepage" action="index" icon="ui-icon-extlink" />
+		</p:splitButton>
+		
+		
+		  <p:commandButton value="Submit" update="display" oncomplete="PF('dlg').show()" icon="ui-icon-check" />
+		</h:form>
+</h:body>
 </html>

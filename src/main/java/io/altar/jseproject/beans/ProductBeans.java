@@ -20,7 +20,7 @@ public class ProductBeans  {
 
 	public ControlProduct getCp() {
 		return cp;
-	}
+	}	
 
 	public void setCp(ControlProduct cp) {
 		this.cp = cp;
