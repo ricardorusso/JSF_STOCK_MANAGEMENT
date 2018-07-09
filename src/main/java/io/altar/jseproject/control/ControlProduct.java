@@ -14,22 +14,22 @@ public class ControlProduct {
 		
 		static EntityRepository <Product> DbProduct = ProductRepository.getIntance();
 		
-		public static void createProduct(Product p) {
+		public  void createProduct(Product p) {
 			
 			DbProduct.addEntity(p);
 			
 		}
 		
-		public static Collection<Product> getProduct() {
+		public  Collection<Product> getProduct() {
 			return DbProduct.getEntity();
 			
 		}
 		
-		public static void editProduct(Product p) {
+		public  void editProduct(Product p) {
 			DbProduct.editEntity(p);
 		}
 		
-		public static void removeProduct(Product p) {
+		public  void removeProduct(Product p) {
 			DbProduct.removeEntity(p);
 		}
 		

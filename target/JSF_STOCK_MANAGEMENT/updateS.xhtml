@@ -3,7 +3,9 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:p="http://primefaces.org/ui">
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:of="http://omnifaces.org/functions"
+	xmlns:o="http://omnifaces.org/ui">
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </h:head>
@@ -18,6 +20,7 @@
 			<f:facet name="header">
            Edicao de Prateleiras
        </f:facet>
+			
 			<p:column style="width:20px" headerText="ID">
 				<h:outputText value="#{shelf.ID}"
 					style="color:red;text-align:justify;" />
@@ -33,10 +36,10 @@
 					</f:facet>
 				</p:cellEditor>
 			</p:column>
-			<p:column headerText="Preço">
+			<p:column headerText="Preço" >
 				<p:cellEditor>
 					<f:facet name="output">
-						<h:outputText value="#{shelf.price}" />
+						<h:outputText value="#{shelf.price}" style="text-align:center;" />
 					</f:facet>
 					<f:facet name="input">
 						<p:inputText value="#{shelf.price}" style="width:80%" />
@@ -46,25 +49,25 @@
 			<p:column headerText="Produto">
 				<p:cellEditor>
 					<f:facet name="output">
-						<h:outputText value="#{shelf.productName}" />
+						<h:outputText value="#{shelf.productName.ID}" />
 					</f:facet>
 					<f:facet name="input">
-						<h:selectOneMenu value="#{ProductBean.product}" style="width:100%">
-							<f:selectItems value="#{shelf.productName}" var="man"
-								itemLabel="#{man}" itemValue="#{man}" />
+						<h:selectOneMenu value="#{shelf.productName}" style="width:100%" converter="omnifaces.SelectItemsConverter">
+							<f:selectItems value="#{ProductBean.product}" var="product" 
+								itemLabel="#{product.ID}" itemValue="#{product}"/>
 						</h:selectOneMenu>
 					</f:facet>
 				</p:cellEditor>
 			</p:column>
+			
 
-			<p:column style="width:20px">
-
+			<p:column style="width:35px">	
 				<p:rowEditor />
 			</p:column>
-
-			<p:column style="width:20px">
+	
+			<p:column style="width:35px">
 				<p:commandButton icon="ui-icon-trash" title="Delete this actor"
-					action="#{ProductBean.removeProduct(product)}" ajax="false" />
+					action="#{ShelfBean.removeShelf(shelf)}" ajax="false" />
 			</p:column>
 		</p:dataTable>
 	</h:form>

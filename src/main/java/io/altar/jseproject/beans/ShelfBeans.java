@@ -35,17 +35,17 @@ public class ShelfBeans {
 	}
 	
 	public String createShelf() {
-		Controlshelf.createShelf(s);
+		cs.createShelf(s);
 		return "index";
 	}
 	public void removeShelf(Shelf s) {
-		Controlshelf.removeShelf(s);
+		cs.removeShelf(s);
 		
 	}
 	
 	
 	public Collection<Shelf> getShelf(){
-		return Controlshelf.getShelf();
+		return cs.getShelf();
 	}
 	
 	

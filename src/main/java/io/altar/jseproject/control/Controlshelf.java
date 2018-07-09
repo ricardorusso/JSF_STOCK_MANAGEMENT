@@ -15,18 +15,18 @@ public class Controlshelf {
 
 	static EntityRepository <Shelf> DbShelf = ShelfRepository.getIntance();
 	
-	public static void createShelf(Shelf s) {
+	public void createShelf(Shelf s) {
 		DbShelf.addEntity(s);
 	}
-	public static void editShelf(Shelf s){
+	public  void editShelf(Shelf s){
 		DbShelf.editEntity(s);
 	}
 	
-	public static void removeShelf(Shelf s) {
+	public void removeShelf(Shelf s) {
 		DbShelf.removeEntity(s);
 		}
 	
-	public static Collection<Shelf> getShelf(){
+	public Collection<Shelf> getShelf(){
 		return DbShelf.getEntity();
 	
 	}

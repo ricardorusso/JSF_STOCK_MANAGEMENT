@@ -1,11 +1,13 @@
 package io.altar.jseproject.beans;
 
+import java.util.Collection;
+
+import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
+
 import io.altar.jseproject.control.ControlProduct;
 import io.altar.jseproject.model.Product;
-import java.util.Collection;
-import javax.enterprise.context.RequestScoped;
 
 @Named("ProductBean")
 @RequestScoped
@@ -34,20 +36,20 @@ public class ProductBeans  {
 		this.p = p;
 	}
 	public String createProduct() {
-		ControlProduct.createProduct(p);
+		cp.createProduct(p);
 		return "index";
 	}
 
 	
 	public Collection<Product> getProduct(){
-		return ControlProduct.getProduct();
+		return cp.getProduct();
 	}
 	
 	public void editProduct(Product p) {
-		ControlProduct.editProduct(p);
+		cp.editProduct(p);
 	}
 	
 	public void removeProduct(Product p) {
-		ControlProduct.removeProduct(p);
+		cp.removeProduct(p);
 	}
 }

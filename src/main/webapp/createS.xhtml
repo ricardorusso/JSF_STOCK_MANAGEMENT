@@ -20,17 +20,17 @@
 		Preço <h:inputText value="#{ShelfBean.s.price}">
 		</h:inputText>
 		<br> </br>
-		Produto <p:cellEditor>
+	<!-- 	Produto <p:cellEditor>
 			<f:facet name="output">
 				<h:outputText value="#{ShelfBean.s.productName }" />
 			</f:facet>
 			<f:facet name="input">
-				<h:selectOneMenu id="display" value="#{ProductBean.product}" style="width:30%">
+				<h:selectOneMenu id="display" value="#{ProductBean.product}" style="width:30%" converter="omnifaces.SelectItemsConverter">
 					<f:selectItems  value="#{ProductBean.product}" var="man"
-						itemLabel="#{man}" itemValue="#{man}" />
+						itemLabel="#{product.ID}" itemValue="#{product}" />
 				</h:selectOneMenu>
 			</f:facet>
-		</p:cellEditor>
+		</p:cellEditor> -->
 
 
 		<p:growl id="messages" />
@@ -44,8 +44,7 @@
 			<p:menuitem value="Homepage" action="index" icon="ui-icon-extlink" />
 		</p:splitButton>
 		
-		
-		  <p:commandButton value="Submit" update="display" oncomplete="PF('dlg').show()" icon="ui-icon-check" />
+
 		</h:form>
 </h:body>
 </html>

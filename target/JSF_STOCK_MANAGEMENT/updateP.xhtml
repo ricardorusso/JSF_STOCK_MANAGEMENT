@@ -18,7 +18,11 @@
 			<f:facet name="header">
            Edicao de Produtos
        </f:facet>
-		<p:column style="width:20px" headerText="ID">
+			<p:ajax event="rowEdit" listener="#{dtEditView.onRowEdit}"
+				update=":form:msgs" />
+			<p:ajax event="rowEditCancel" listener="#{dtEditView.onRowCancel}"
+				update=":form:msgs" />
+			<p:column style="width:20px" headerText="ID">
 				<h:outputText value="#{product.ID}"
 					style="color:red;text-align:justify;" />
 			</p:column>
@@ -53,19 +57,46 @@
 					</f:facet>
 				</p:cellEditor>
 			</p:column>
-			
-			<p:column style="width:20px">
-
+			<p:column headerText="Prateleira lista">
+				<p:cellEditor>
+					<f:facet name="output">
+						<h:outputText value="#{product.list}" />
+					</f:facet>
+					<f:facet name="input">
+						<h:selectOneMenu value="#{product.list}" style="width:100%"
+							converter="omnifaces.SelectItemsConverter">
+							<f:selectItems value="#{ShelfBean.shelf}" var="shelf"
+								itemLabel="#{shelf.ID}" itemValue="#{shelf}" />
+						</h:selectOneMenu>
+					</f:facet>
+				</p:cellEditor>
+			</p:column>
+			<p:column style="width:35px">
 				<p:rowEditor />
 			</p:column>
-
-			<p:column style="width:20px">
+			<p:column style="width:35px">
 				<p:commandButton icon="ui-icon-trash" title="Delete this actor"
 					action="#{ProductBean.removeProduct(product)}" ajax="false" />
 			</p:column>
 		</p:dataTable>
-	</h:form>
-	<h:form>
+		
+		<!-- <p:outputLabel for="advanced" value="Lista de Prateleiras:" />
+		<p:selectManyMenu id="advanced"
+			value="#{ProductBean.p.list}" 
+			var="t" filter="true" filterMatchMode="contains" showCheckbox="true">
+			<f:selectItems value="#{ShelfBean.shelf}" var="shelf"
+				itemLabel="#{shelf.ID}" itemValue="#{shelf}" />
+
+			<p:column>
+				<h:outputText styleClass="ui-theme ui-theme-#{shelf.ID}" />
+			</p:column>
+
+			<p:column>
+				<h:outputText value="#{shelf.ID}" />
+			</p:column>
+		</p:selectManyMenu> -->
+		
+	
 		<h:commandButton value="Home" action="index">
 		</h:commandButton>
 	</h:form>
